@@ -1,0 +1,102 @@
+html,
+body {
+  height: 100%;
+  font-family: "Nunito Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #F3F2EE !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: #111111;
+  font-weight: 400;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
+}
+a,
+a:hover,
+a:focus {
+  text-decoration: none !important;
+  outline: none;
+  color: #ffffff;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+.card-style {
+  margin-top: 50px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 6px 6px -3px rgba(0, 0, 0, 0.2),
+    0 10px 14px 1px rgba(0, 0, 0, 0.14), 0 4px 18px 3px rgba(0, 0, 0, 0.12) !important;
+	background: #EFDBD4;
+	color: black;
+	font-weight: bold;
+}
+
+.card-style-width{
+  max-width: 400px !important;
+}
+
+
+.card-style button , .icon{
+	background: #760C1C;
+	border: #760C1C;
+	color: #fff;
+	font-weight: bold;
+
+}
+.card-style button:hover{
+	background: #963342;
+	color: #fff;
+	font-weight: bold;
+}
+
+.card-style a{
+	color: #760C1C;
+	font-weight: bold;
+}
+.card-style i{
+	color: #760C1C;
+}
+.card-style i:hover{
+	color: #963342;
+}
+
+.error{
+  color:red;
+  font-weight: bolder;
+  font-size: large;
+}
