@@ -22,7 +22,7 @@ const Signup = () => {
       } else {
         setError("");
         const { email, id } = res;
-        localStorage.setItem("logger", JSON.stringify({ email, id, password }));
+        localStorage.setItem("user", JSON.stringify({ email, id, password }));
       }
     } catch (error) {
       console.log(error);

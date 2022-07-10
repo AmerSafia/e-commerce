@@ -23,7 +23,7 @@ export const Login = () => {
       } else {
         setError("");
         const { email, id } = res;
-        localStorage.setItem("logger", JSON.stringify({ email, id }));
+        localStorage.setItem("user", JSON.stringify({ email, id }));
       }
     } catch (error) {
       console.log(error);

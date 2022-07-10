@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Input } from "../components/common/input";
+import { productApi } from "../api/productApi";
+import { useHistory,useLocation } from "react-router-dom";
 
 const AddProduct = () => {
+  const { state } = useLocation();
+  console.log(state,"add-product");
+
   const [product, setProduct] = useState({});
+  const history = useHistory();
 
   const onSetProduct = (event) => {
     const { value, name } = event.target;
@@ -10,10 +16,20 @@ const AddProduct = () => {
       ...product,
       [name]: value,
     });
-    console.log(product,"product");
+  };
+  const onAddOrEditProduct = async (event) => {
+    event.preventDefault();
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userid = user.id.toString();
+    try {
+      await productApi.postproduct({ ...product, userid });
+      history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
-    <div className="container w-100 card-style ">
+    <div className="container w-50 card-style">
       <div className="d-flex justify-content-between mb-5 ">
         <h2>Add Product</h2>
       </div>
@@ -57,13 +73,17 @@ const AddProduct = () => {
           // value={onSetProduct["quantity"]}
           onSetInput={onSetProduct}
         />
-         <Input
-          label="productdetails"
-          name="productdetails"
+        <Input
+          label="discription"
+          name="discription"
           // value={onSetProduct["category"]}
           onSetInput={onSetProduct}
         />
-        <button type="submit" className="btn btn-primary mt-3">
+        <button
+          type="submit"
+          onClick={onAddOrEditProduct}
+          className="btn btn-primary mt-3"
+        >
           Add Product
         </button>
       </form>

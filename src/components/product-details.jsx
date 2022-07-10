@@ -1,19 +1,33 @@
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import {  useLocation } from "react-router-dom";
 import "./product-details.css";
 const ProductDetails = () => {
-  const { state } = useLocation();
-  console.log(location);
+  const [isAdminUser, setIsAdminUser] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userid = user.id.toString();
+    if (state.userid == userid) {
+      setIsAdminUser(true);
+    }
+  });
+
+  useEffect(() => {
+    const { state } = useLocation();
+    console.log(state);
+  }, []);
+
+  const onEdit = (product) => {
+    history.push("/add-product", product);
+  };
+
   return (
     <div className="container">
       <div className="col-lg-8  p-3 main-section w-100 card-style py-5 mt-1">
         <div className="row m-0">
           <div className="col-lg-4 left-side-product-box pb-3">
             <img src={state.imgurl} className=" p-3" />
-            {/* <span className="sub-img">
-                            <img src="http://nicesnippets.com/demo/pd-image2.jpg" className="border p-2" />
-                            <img src="http://nicesnippets.com/demo/pd-image3.jpg" className="border p-2" />
-                            <img src="http://nicesnippets.com/demo/pd-image4.jpg" className="border p-2" />
-                        </span> */}
           </div>
           <div className="col-lg-8">
             <div className="right-side-pro-detail p-3 m-0">
@@ -27,7 +41,7 @@ const ProductDetails = () => {
                 </div>
                 <div className="col-lg-12 pt-2">
                   <h5>Product Detail</h5>
-                  <span>{state.productdetails}</span>
+                  <span>{state.discription}</span>
                   <hr className="m-0 pt-2 mt-2" />
                 </div>
                 <div className="col-lg-12 mt-3">
@@ -36,7 +50,14 @@ const ProductDetails = () => {
                       <button className="btn w-100">Add To Cart</button>
                     </div>
                     <div className="col-lg-6">
-                      <button className="btn  w-100">Shop Now</button>
+                      {isAdminUser && (
+                        <button
+                          className="btn w-100"
+                          onClick={() => onEdit(state)}
+                        >
+                          Edit
+                        </button>
+                      )}{" "}
                     </div>
                   </div>
                 </div>
