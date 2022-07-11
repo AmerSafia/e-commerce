@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input } from "../components/common/input";
 import { productApi } from "../api/productApi";
-import { useHistory,useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 const AddProduct = () => {
-  const { state } = useLocation();
-  console.log(state,"add-product");
-
   const [product, setProduct] = useState({});
+  const { productId } = useLocation();
   const history = useHistory();
 
   const onSetProduct = (event) => {
@@ -17,6 +15,10 @@ const AddProduct = () => {
       [name]: value,
     });
   };
+
+  useEffect(() => {
+    console.log(productId,"asasdasd");
+  }, []);
   const onAddOrEditProduct = async (event) => {
     event.preventDefault();
     const user = JSON.parse(localStorage.getItem("user"));
@@ -29,7 +31,7 @@ const AddProduct = () => {
     }
   };
   return (
-    <div className="container w-50 card-style">
+    <div className="container card-style">
       <div className="d-flex justify-content-between mb-5 ">
         <h2>Add Product</h2>
       </div>

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Input } from "../components/common/input";
+import { useHistory, Link } from "react-router-dom";
 import { auth } from "../api/auth";
+import { useAuthContext } from "../hooks/useAuthContext";
 const Signup = () => {
   const [signup, setSignup] = useState({});
   const [error, setError] = useState("");
+  const { dispatch } = useAuthContext();
+  const history = useHistory();
 
   const onSetSignup = (event) => {
     const { value, name } = event.target;
@@ -16,18 +20,21 @@ const Signup = () => {
   const register = async (event) => {
     event.preventDefault();
     try {
-      const res = await auth.signup(signup);
-      if (!res.success) {
-        setError(res.message);
+      const { message, success, email, username, token, id } = await auth.login(
+        login
+      );
+      if (success) {
+        dispatch({
+          type: "LOGIN",
+          payload: { id, email, username, token },
+        });
+        history.push("/");
       } else {
-        setError("");
-        const { email, id } = res;
-        localStorage.setItem("user", JSON.stringify({ email, id, password }));
+        setError(message);
       }
     } catch (error) {
       console.log(error);
     }
-  
   };
   return (
     <div className="container card-style card-style-width">
@@ -62,6 +69,9 @@ const Signup = () => {
         >
           Sign Up
         </button>
+        <p>
+          If you already have an account, just {"  "}<Link to="/Login">Login</Link>.
+        </p>
       </form>
       {error && <span className="error">{error}</span>}
     </div>

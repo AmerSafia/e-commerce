@@ -1,25 +1,22 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import {  useLocation } from "react-router-dom";
 import "./product-details.css";
+import { useState, useEffect } from "react";
+import { useLocation, useHistory } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
+
 const ProductDetails = () => {
   const [isAdminUser, setIsAdminUser] = useState(false);
+  const { state } = useLocation();
+  const { user } = useAuthContext();
+  const history = useHistory();
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const userid = user.id.toString();
-    if (state.userid == userid) {
+    if (user && state.userid == user.id) {
       setIsAdminUser(true);
     }
-  });
-
-  useEffect(() => {
-    const { state } = useLocation();
-    console.log(state);
   }, []);
 
   const onEdit = (product) => {
-    history.push("/add-product", product);
+    history.push("/add-product", product.id);
   };
 
   return (

@@ -3,12 +3,12 @@ const express = require("express");
 const Mongoose = require("mongoose");
 const bodyParser = require('body-parser')
 const cors = require("cors");
+const config = require('config');
 
 const app = express();
 const port = 5000;
 
-Mongoose.connect(
-  'mongodb+srv://Amersafia:uy2PguVMgVQOGMqZ@ecommerceapp.tmquv.mongodb.net/ecommerceapp?retryWrites=true&w=majority',
+Mongoose.connect(config.DATABASE.host,
   { useUnifiedTopology: true, useNewUrlParser: true },
   (err) => {
     if (err) {

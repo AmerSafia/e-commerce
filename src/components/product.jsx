@@ -26,13 +26,13 @@ const Product = () => {
 
 
   return (
-    <div className="container mydiv">
+    <div className="container ">
       <div className="row">
         {products &&
           products.map((product) => {
             return (
               <div
-                className="col-md-3 mt-3"
+                className="col-md-2 col-sm-6 mt-3" key={product._id}
                 onClick={() => onDetailsProduct(product)}
               >
                 <div className="bbb_deals">
@@ -51,7 +51,7 @@ const Product = () => {
                         <img src={product.imgurl} alt="" />
                       </div>
                       <div className="bbb_deals_content">
-                        <div className="bbb_deals_info_line bold d-flex flex-row justify-content-start">
+                        <div className="bbb_deals_info_line bold d-flex flex-row justify-content-between">
                           <div className="bbb_deals_item_category">
                             <a href="#">{product.category}</a>
                           </div>
@@ -67,20 +67,18 @@ const Product = () => {
                             {product.price}
                           </div>
                         </div>
-                        <div className="available d-flex justify-content-between">
                           <div className="available_line">
                             <div className="available_title">
                               Available: <span>{product.quantity}</span>
                             </div>
                           </div>
-                          <div className="sold_stars ml-auto">
+                          <div className="sold_stars">
                             <i className="fa fa-star"></i>{" "}
                             <i className="fa fa-star"></i>{" "}
                             <i className="fa fa-star"></i>{" "}
                             <i className="fa fa-star"></i>{" "}
                             <i className="fa fa-star"></i>{" "}
                           </div>
-                        </div>
                       </div>
                     </div>
                   </div>

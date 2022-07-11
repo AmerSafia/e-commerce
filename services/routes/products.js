@@ -1,7 +1,6 @@
 //use Router couse use group apis
 const router = require("express").Router();
 const Product = require("../models/product");
-// const app =express()
 
 //POST request -create a new product
 router.post("/products", async (req, res) => {
@@ -11,7 +10,7 @@ router.post("/products", async (req, res) => {
         product.discription = req.body.discription;
         product.imgurl = req.body.imgurl;
         product.price = req.body.price;
-        product.lastPrice = req.body.lastPrice;
+        product.lastprice = req.body.lastprice;
         product.category = req.body.category;
         product.userid = req.body.userid;
         product.quantity = req.body.quantity;
@@ -115,64 +114,3 @@ router.delete("/products/:id", async (req, res) => {
     }
 });
 module.exports = router;
-
-// const express = require("express");
-// const router = express.Router()
-
-// const products = [
-//     {
-//         id: '1',
-//         title: "HP Notebook",
-//         price: "25,550",
-//         lastprice: "₹30,000",
-//         imgurl: "https://i.imgur.com/9UYzfny.png",
-//         category: "Laptops",
-//         deals_title: true,
-//         quantity: 4,
-//         productdetails:
-//             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit porro aut tenetur earum tempora. Beatae reprehenderit magni cumque rem reiciendis incidunt voluptatibus libero repellat ea totam veritatis mollitia, eos laudantium?",
-//     },
-//     {
-//         id: '2',
-//         title: "HP Notebook",
-//         price: "25,550",
-//         lastprice: "₹30,000",
-//         imgurl: "https://i.imgur.com/9UYzfny.png",
-//         category: "Laptops",
-//         deals_title: true,
-//         quantity: 4,
-//         productdetails:
-//             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit porro aut tenetur earum tempora. Beatae reprehenderit magni cumque rem reiciendis incidunt voluptatibus libero repellat ea totam veritatis mollitia, eos laudantium?",
-//     },
-//     {
-//         id: '3',
-//         title: "HP Notebook",
-//         price: "25,550",
-//         lastprice: "₹30,000",
-//         imgurl: "https://i.imgur.com/9UYzfny.png",
-//         category: "Laptops",
-//         deals_title: true,
-//         quantity: 4,
-//         productdetails:
-//             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit porro aut tenetur earum tempora. Beatae reprehenderit magni cumque rem reiciendis incidunt voluptatibus libero repellat ea totam veritatis mollitia, eos laudantium?",
-//     },
-// ];
-
-// router.get('/products',(req,res)=>{
-//     console.log("Asd");
-//     res.json(products)
-// })
-
-// router.get('product/:id',(req,res)=>{
-//     const id = req.params.id
-//     const product = products.find(product => product.id === id )
-//     res.json(product)
-// })
-
-// router.delete('product/:id',(req,res)=>{
-//     const id = req.params.id
-//     const product = products.filter(product => product.id !== id )
-//     console.log(product);
-// })
-
-// module.exports = router;

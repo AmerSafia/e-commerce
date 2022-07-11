@@ -9,7 +9,7 @@ const ProductSchema = new Schema(
         category: String,
         deals_title: Boolean,
         price: String,
-        lastPrice: String,
+        lastprice: String,
         quantity: Number,
         userid: String
     },

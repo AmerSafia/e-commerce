@@ -1,0 +1,8 @@
+{
+  "DATABASE": {
+    "host": "mongodb+srv://Amersafia:uy2PguVMgVQOGMqZ@ecommerceapp.tmquv.mongodb.net/ecommerceapp?retryWrites=true&w=majority"
+  },
+  "TOKEN": {
+    "SECRET": "qwadsfqaf2q2rewfds34ewfdaf123edq1234"
+  }
+}
