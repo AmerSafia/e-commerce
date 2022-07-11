@@ -46,7 +46,7 @@ router.get("/products", async (req, res) => {
 });
 
 //GET request-get single product
-router.get("/products/:id", async (req, res) => {
+router.get("/product/:id", async (req, res) => {
     try {
         let product = await Product.findOne({ _id: req.params.id }).exec();
         res.json({
@@ -62,7 +62,7 @@ router.get("/products/:id", async (req, res) => {
 });
 
 //PUT request -Update a single Product
-router.put("/products/:id", async (req, res) => {
+router.put("/product/:id", async (req, res) => {
     try {
         let product = await Product.findOneAndUpdate(
             { _id: req.params.id },
@@ -75,9 +75,8 @@ router.put("/products/:id", async (req, res) => {
                     quantity: req.body.quantity,
                     imgurl: req.body.imgurl,
                     discription: req.body.discription,
-                    lastPrice: req.body.lastPrice,
+                    lastprice: req.body.lastprice,
                     deals_title: req.body.deals_title
-
                 },
             },
             //if this id not found in database will add as a new object

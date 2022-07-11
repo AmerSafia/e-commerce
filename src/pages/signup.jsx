@@ -70,7 +70,12 @@ const Signup = () => {
           Sign Up
         </button>
         <p>
-          If you already have an account, just {"  "}<Link to="/Login">Login</Link>.
+          If you already have an account{" "}
+          <span>
+            {"  "}
+            <Link to="/Login">Login</Link>
+          </span>
+          .
         </p>
       </form>
       {error && <span className="error">{error}</span>}

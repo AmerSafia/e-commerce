@@ -1,13 +1,13 @@
 import "./product-details.css";
 import { useState, useEffect } from "react";
-import { useLocation, useHistory } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useLocation ,useHistory} from "react-router-dom";
+import { useAuthContext  } from "../hooks/useAuthContext";
 
 const ProductDetails = () => {
   const [isAdminUser, setIsAdminUser] = useState(false);
   const { state } = useLocation();
-  const { user } = useAuthContext();
   const history = useHistory();
+  const { user } = useAuthContext();
 
   useEffect(() => {
     if (user && state.userid == user.id) {
@@ -16,12 +16,12 @@ const ProductDetails = () => {
   }, []);
 
   const onEdit = (product) => {
-    history.push("/add-product", product.id);
+    history.push(`/edit-product/${product.id}`);
   };
 
   return (
     <div className="container">
-      <div className="col-lg-8  p-3 main-section w-100 card-style py-5 mt-1">
+      <div className="col-lg-8  p-3 w-100 card-style py-5 mt-1">
         <div className="row m-0">
           <div className="col-lg-4 left-side-product-box pb-3">
             <img src={state.imgurl} className=" p-3" />

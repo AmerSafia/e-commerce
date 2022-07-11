@@ -1,7 +1,7 @@
+import "./product.css";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { productApi } from "../api/productApi";
-import "./product.css";
 
 const Product = () => {
   const history = useHistory();
@@ -26,7 +26,7 @@ const Product = () => {
 
 
   return (
-    <div className="container ">
+    <div className="container min-vh-100">
       <div className="row">
         {products &&
           products.map((product) => {
@@ -53,7 +53,7 @@ const Product = () => {
                       <div className="bbb_deals_content">
                         <div className="bbb_deals_info_line bold d-flex flex-row justify-content-between">
                           <div className="bbb_deals_item_category">
-                            <a href="#">{product.category}</a>
+                            <a >{product.category}</a>
                           </div>
                           <div className="bbb_deals_item_price_a ml-auto">
                             <strike>{product.lastprice}</strike>
@@ -64,7 +64,7 @@ const Product = () => {
                             {product.title}
                           </div>
                           <div className="bbb_deals_item_price ml-auto">
-                            {product.price}
+                            ${product.price}
                           </div>
                         </div>
                           <div className="available_line">

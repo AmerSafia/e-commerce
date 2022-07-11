@@ -122,7 +122,7 @@ div {
 .bbb_deals_item_price {
   font-size: 14px;
   font-weight: 500;
-  color: #0f121f;
+  color: rgb(155, 144, 255) !important;
 }
 .available {
   margin-top: 19px;

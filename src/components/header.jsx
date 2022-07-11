@@ -60,9 +60,11 @@ const Header = () => {
                 <li className="active">
                   <Link to="/">Home</Link>
                 </li>
-                <li>
-                  <Link to="/add-product">Add Product</Link>
-                </li>
+                {user && (
+                  <li>
+                    <Link to="/add-product">Add Product</Link>
+                  </li>
+                )}
                 <li>
                   <Link to="/">Pages</Link>
                   <ul className="dropdown">
@@ -84,7 +86,7 @@ const Header = () => {
                   </ul>
                 </li>
                 <li>
-                  <Link to="/">Contacts</Link>
+                  <Link to="/">My Products</Link>
                 </li>
               </ul>
             </nav>

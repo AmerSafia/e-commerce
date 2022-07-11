@@ -26,7 +26,7 @@ export const Login = () => {
       if (success) {
         dispatch({
           type: "LOGIN",
-          payload: { id, email, username,token },
+          payload: { id, email, username, token },
         });
         history.push("/");
       } else {
@@ -66,9 +66,13 @@ export const Login = () => {
         <button type="submit" onClick={onLogin} className="btn w-100 mt-2 mb-3">
           Login
         </button>
-        <span>
-          Not a User? <Link to="/signup">Sign Up</Link>
-        </span>
+        <p>
+          Don't have an account?
+          <span>
+            {" "}
+            <Link to="/signup">Sign Up</Link>
+          </span>
+        </p>
         {error && <span className="error">{error}</span>}
       </form>
     </div>

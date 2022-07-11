@@ -5,11 +5,15 @@ export const productApi = {
             .then(getDataFromResponse)
             .catch(getDataFromError),
     getProduct: (id) =>
-        getUnAuthenticatedAxios().get(`products`, id)
+        getUnAuthenticatedAxios().get(`product/${id}`)
             .then(getDataFromResponse)
             .catch(getDataFromError),
     postproduct: (body) =>
         getUnAuthenticatedAxios().post(`products`, body)
+            .then(getDataFromResponse)
+            .catch(getDataFromError),
+    updateproduct: (body) =>
+        getUnAuthenticatedAxios().put(`product/${body.id}`, body)
             .then(getDataFromResponse)
             .catch(getDataFromError),
 };

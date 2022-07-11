@@ -99,3 +99,9 @@ ol {
   font-weight: bolder;
   font-size: large;
 }
+.card-style p{
+  font-size: small;
+}
+.card-style span{
+  font-size: larger;
+}
