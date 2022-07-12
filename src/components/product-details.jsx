@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectUser } from "../redux/userSlice";
+import { productApi } from "../api/productApi";
 
 const ProductDetails = () => {
   const [isAdminUser, setIsAdminUser] = useState(false);
@@ -18,6 +19,12 @@ const ProductDetails = () => {
 
   const onEdit = (product) => {
     history.push(`/edit-product/${product.id}`);
+  };
+
+  const onDelete = async (product) => {
+    console.log(product.id);
+    await productApi.deleteproduct(product.id);
+    history.push(`/`);
   };
 
   return (
@@ -44,10 +51,10 @@ const ProductDetails = () => {
                 </div>
                 <div className="col-lg-12 mt-3">
                   <div className="row">
-                    <div className="col-lg-6 pb-2">
+                    <div className="col-lg-4 pb-2">
                       <button className="btn w-100">Add To Cart</button>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-4 pb-2">
                       {isAdminUser && (
                         <button
                           className="btn w-100"
@@ -55,7 +62,17 @@ const ProductDetails = () => {
                         >
                           Edit
                         </button>
-                      )}{" "}
+                      )}
+                    </div>
+                    <div className="col-lg-4">
+                      {isAdminUser && (
+                        <button
+                          className="btn w-100"
+                          onClick={() => onDelete(state)}
+                        >
+                          delete
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

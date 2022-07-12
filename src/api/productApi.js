@@ -16,4 +16,8 @@ export const productApi = {
         getUnAuthenticatedAxios().put(`product/${body.id}`, body)
             .then(getDataFromResponse)
             .catch(getDataFromError),
+    deleteproduct: (id) =>
+        getUnAuthenticatedAxios().delete(`product/${id}`)
+            .then(getDataFromResponse)
+            .catch(getDataFromError),
 };

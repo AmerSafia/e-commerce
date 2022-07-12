@@ -95,7 +95,7 @@ router.put("/product/:id", async (req, res) => {
 });
 
 //DELETE request - delete a single Product
-router.delete("/products/:id", async (req, res) => {
+router.delete("/product/:id", async (req, res) => {
     try {
         let deletedProduct = await Product.findOneAndDelete({ _id: req.params.id });
 
