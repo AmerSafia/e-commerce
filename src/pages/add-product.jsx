@@ -32,7 +32,6 @@ const AddProduct = () => {
     try {
       const { product } = await productApi.getProduct(id);
       setProduct({ ...product });
-      console.log(product);
     } catch (error) {
       console.log(error);
     }
@@ -45,7 +44,7 @@ const AddProduct = () => {
       if (productId) {
         await productApi.updateproduct({ ...product, userid });
       } else {
-        await productApi.postproduct({ ...product });
+        await productApi.postproduct({ ...product ,userid});
       }
       history.push("/");
     } catch (error) {
