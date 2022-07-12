@@ -1,17 +1,21 @@
 import "./header.css";
 import { Link } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectUser } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/userSlice";
+
 
 const Header = () => {
   const history = useHistory();
-  const { dispatch } = useAuthContext();
-  const { user } = useAuthContext();
+  const dispatch = useDispatch();
+
+  const user = useSelector(selectUser);
   const logOut = () => {
-    dispatch({ type: "LOGOUT" });
+    dispatch(logout());
     history.push("/");
   };
-
   return (
     <div>
       <header className="header">

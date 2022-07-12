@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Input } from "../components/common/input";
 import { productApi } from "../api/productApi";
 import { useParams, useHistory } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { selectUser } from "../redux/userSlice";
+import { useSelector } from "react-redux";
+
 
 const AddProduct = () => {
   const [product, setProduct] = useState({});
   const { id: productId } = useParams();
   const history = useHistory();
-  const { user } = useAuthContext();
+  const user = useSelector(selectUser);
 
+  
   const onSetProduct = (event) => {
     const { value, name } = event.target;
 

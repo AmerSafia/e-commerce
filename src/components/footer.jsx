@@ -61,22 +61,22 @@ const Footer = () => {
             </li>
             <li className="nav-item">
               <span className="nav-link">
-                <i className="fas fa-phone"></i>+47 45 80 80 80
+                <i className="fa fa-phone"></i>+47 45 80 80 80
               </span>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <i className="fas fa-comments"></i>Live chat
+                <i className="fa fa-comments"></i>Live chat
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <i className="fas fa-envelope"></i>Contact us
+                <i className="fa fa-envelope"></i>Contact us
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <i className="fas fa-star"></i>Give feedback
+                <i className="fa fa-star"></i>Give feedback
               </a>
             </li>
           </ul>
@@ -84,7 +84,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center">
-        <i className="fas fa-ellipsis-h"></i>
+        <i className="fa fa-ellipsis-h"></i>
       </div>
 
       <div className="row text-center">
@@ -98,17 +98,17 @@ const Footer = () => {
           <ul className="list-inline social-buttons">
             <li className="list-inline-item">
               <a href="#">
-                <i className="fab fa-twitter"></i>
+                <i className="fa fa-twitter"></i>
               </a>
             </li>
             <li className="list-inline-item">
               <a href="#">
-                <i className="fab fa-facebook-f"></i>
+                <i className="fa fa-facebook-official"></i>
               </a>
             </li>
             <li className="list-inline-item">
               <a href="#">
-                <i className="fab fa-linkedin-in"></i>
+                <i className="fa fa-linkedin"></i>
               </a>
             </li>
           </ul>

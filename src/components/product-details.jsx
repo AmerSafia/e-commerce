@@ -1,13 +1,14 @@
 import "./product-details.css";
 import { useState, useEffect } from "react";
-import { useLocation ,useHistory} from "react-router-dom";
-import { useAuthContext  } from "../hooks/useAuthContext";
+import { useLocation, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectUser } from "../redux/userSlice";
 
 const ProductDetails = () => {
   const [isAdminUser, setIsAdminUser] = useState(false);
   const { state } = useLocation();
   const history = useHistory();
-  const { user } = useAuthContext();
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     if (user && state.userid == user.id) {

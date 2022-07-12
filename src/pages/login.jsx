@@ -2,32 +2,32 @@ import React, { useState } from "react";
 import { Input } from "../components/common/input";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../api/auth";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/userSlice";
 
 export const Login = () => {
-  const [login, setLogin] = useState({});
+  const [loginData, setLogin] = useState({});
   const [error, setError] = useState("");
-  const { dispatch } = useAuthContext();
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onSetLogin = (event) => {
     const { value, name } = event.target;
     setLogin({
-      ...login,
+      ...loginData,
       [name]: value,
     });
   };
+
+
   const onLogin = async (event) => {
     event.preventDefault();
     try {
-      const { message, success, email, username, token, id } = await auth.login(
-        login
+      const { message, success, email, username, id } = await auth.login(
+        loginData
       );
       if (success) {
-        dispatch({
-          type: "LOGIN",
-          payload: { id, email, username, token },
-        });
+        dispatch(login({ id, email, username,loggedIn:true }));
         history.push("/");
       } else {
         setError(message);
